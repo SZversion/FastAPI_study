@@ -16,3 +16,7 @@ async def read_root(request: Request):
 @app.post("/result", response_class=HTMLResponse)
 async def post_result(request: Request, content: str = Form(...)):
     return templates.TemplateResponse("result.html", {"request": request, "content": content})
+    
+if __name__ == "__main__":
+	import uvicorn
+	uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
